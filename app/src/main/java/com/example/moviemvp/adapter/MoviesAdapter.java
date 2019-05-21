@@ -50,13 +50,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        holder.pbLoadImage.setVisibility(View.GONE);
                         return false;
                     }
 
                     @Override
                     public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                        holder.pbLoadImage.setVisibility(View.GONE);
                         return false;
                     }
                 })
@@ -84,15 +82,12 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
          TextView tvReleaseDate;
 
          ImageView ivMovieThumb;
-
-         ProgressBar pbLoadImage;
          MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvMovieTitle = itemView.findViewById(R.id.tv_movie_title);
             tvReleaseDate = itemView.findViewById(R.id.tv_release_date);
             tvMovieRatings = itemView.findViewById(R.id.tv_movie_ratings);
             ivMovieThumb = itemView.findViewById(R.id.iv_movie_thumb);
-            pbLoadImage = itemView.findViewById(R.id.pb_load_image);
         }
     }
 }

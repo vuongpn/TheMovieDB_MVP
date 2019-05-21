@@ -36,7 +36,6 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
         initUI();
         setListeners();
         movieListPresenter = new MovieListPresenter(this);
-
         movieListPresenter.requestDataFromServer();
     }
 
@@ -108,7 +107,6 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
 
     @Override
     public void onMovieItemClick(int position) {
-
         if (position == -1) {
             return;
         }
