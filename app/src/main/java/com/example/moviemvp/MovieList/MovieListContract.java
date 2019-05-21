@@ -17,8 +17,8 @@ public interface MovieListContract {
 
      }
      interface View
-     {   void showProgress();
-         void hideProgress();
+     {   void onSuccess();
+         void onFailure();
          void setDataToRecyclerView(List<Movie> movieList);
          void onResponseFailure(Throwable t);
      }

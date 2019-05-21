@@ -19,7 +19,7 @@ public class MovieDetailsPresenter implements MovieDetailsContract.Presenter, Mo
     public void requestMovieData(int movieId) {
 
         if(movieDetailView != null){
-            movieDetailView.showProgress();
+            movieDetailView.onSuccess();
         }
         movieDetailsModel.getMovieDetails(this, movieId);
     }
@@ -28,18 +28,16 @@ public class MovieDetailsPresenter implements MovieDetailsContract.Presenter, Mo
     public void onFinished(Movie movie) {
 
         if(movieDetailView != null){
-            movieDetailView.hideProgress();
+            movieDetailView.onFailure();
         }
-        assert movieDetailView != null;
         movieDetailView.setDataToViews(movie);
     }
 
     @Override
     public void onFailure(Throwable t) {
         if(movieDetailView != null){
-            movieDetailView.hideProgress();
+            movieDetailView.onFailure();
         }
-        assert movieDetailView != null;
         movieDetailView.onResponseFailure(t);
     }
 }

@@ -17,9 +17,9 @@ public interface MovieDetailsContract {
 
     interface View {
 
-        void showProgress();
+        void onSuccess();
 
-        void hideProgress();
+        void onFailure();
 
         void setDataToViews(Movie movie);
 

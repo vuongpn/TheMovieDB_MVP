@@ -58,7 +58,6 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-
                 visibleItemCount = rvMovieList.getChildCount();
                 totalItemCount = mLayoutManager.getItemCount();
                 firstVisibleItem = mLayoutManager.findFirstVisibleItemPosition();
@@ -76,16 +75,15 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
 
             }
         });
+    }
+
+    @Override
+    public void onSuccess() {
 
     }
 
     @Override
-    public void showProgress() {
-
-    }
-
-    @Override
-    public void hideProgress() {
+    public void onFailure() {
 
     }
 

@@ -23,7 +23,7 @@ public class MovieListPresenter implements MovieListContract.Presenter, MovieLis
     public void getMoreData(int pageNo) {
 
         if (movieListView != null) {
-            movieListView.showProgress();
+            movieListView.onSuccess();
         }
         movieListModel.getMovieList(this, pageNo);
     }
@@ -32,7 +32,7 @@ public class MovieListPresenter implements MovieListContract.Presenter, MovieLis
     public void requestDataFromServer() {
 
         if (movieListView != null) {
-            movieListView.showProgress();
+            movieListView.onSuccess();
         }
         movieListModel.getMovieList(this, 1);
     }
@@ -41,7 +41,7 @@ public class MovieListPresenter implements MovieListContract.Presenter, MovieLis
     public void onFinished(List<Movie> movieArrayList) {
         movieListView.setDataToRecyclerView(movieArrayList);
         if (movieListView != null) {
-            movieListView.hideProgress();
+            movieListView.onFailure();
         }
     }
 
@@ -50,7 +50,7 @@ public class MovieListPresenter implements MovieListContract.Presenter, MovieLis
 
         movieListView.onResponseFailure(t);
         if (movieListView != null) {
-            movieListView.hideProgress();
+            movieListView.onFailure();
         }
     }
 }

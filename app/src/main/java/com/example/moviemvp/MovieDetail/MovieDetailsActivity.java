@@ -63,11 +63,11 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
 
 
     @Override
-    public void showProgress() {
+    public void onSuccess() {
     }
 
     @Override
-    public void hideProgress() {
+    public void onFailure() {
     }
 
     @Override
