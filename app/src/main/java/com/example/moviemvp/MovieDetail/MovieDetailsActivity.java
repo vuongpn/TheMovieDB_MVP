@@ -44,11 +44,9 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
         int movieId = mIntent.getIntExtra(KEY_MOVIE_ID, 0);
         movieDetailsPresenter = new MovieDetailsPresenter(this);
         movieDetailsPresenter.requestMovieData(movieId);
-
     }
 
     private void initUI() {
-
         ivBackdrop = findViewById(R.id.iv_backdrop);
         tvMovieTitle = findViewById(R.id.tv_movie_title);
         tvOverview = findViewById(R.id.tv_movie_overview);
