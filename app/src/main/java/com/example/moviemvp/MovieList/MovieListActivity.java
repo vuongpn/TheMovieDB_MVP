@@ -107,9 +107,6 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
 
     @Override
     public void onMovieItemClick(int position) {
-        if (position == -1) {
-            return;
-        }
         Intent detailIntent = new Intent(this, MovieDetailsActivity.class);
         detailIntent.putExtra(KEY_MOVIE_ID, moviesList.get(position).getId());
         startActivity(detailIntent);
