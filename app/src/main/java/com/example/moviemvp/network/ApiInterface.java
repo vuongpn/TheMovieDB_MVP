@@ -1,8 +1,8 @@
 package com.example.moviemvp.network;
 
-import com.example.moviemvp.Model.Movie;
-import com.example.moviemvp.Model.MoviesResponse;
-import com.example.moviemvp.Model.Rate;
+import com.example.moviemvp.model.Movie;
+import com.example.moviemvp.model.MoviesResponse;
+import com.example.moviemvp.model.Rate;
 
 import retrofit2.Call;
 import retrofit2.http.Field;

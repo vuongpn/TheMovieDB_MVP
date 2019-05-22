@@ -1,6 +1,8 @@
-package com.example.moviemvp.MovieDetail;
+package com.example.moviemvp.movie_detail;
 
-import com.example.moviemvp.Model.Movie;
+import android.support.annotation.NonNull;
+
+import com.example.moviemvp.model.Movie;
 import com.example.moviemvp.network.ApiClient;
 import com.example.moviemvp.network.ApiInterface;
 
@@ -8,6 +10,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.moviemvp.util.Constants.API_KEY;
 import static com.example.moviemvp.util.Constants.CREDITS;
 
 public class MovieDetailsModel implements MovieDetailsContract.Model {
@@ -16,29 +19,16 @@ public class MovieDetailsModel implements MovieDetailsContract.Model {
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
-        Call<Movie> call = apiService.getMovieDetails(movieId, API_KEY, CREDITS);
-        call.enqueue(new Callback<Movie>() {
+        apiService.getMovieDetails(movieId, API_KEY, CREDITS).enqueue(new Callback<Movie>() {
             @Override
-            public void onResponse(Call<Movie> call, Response<Movie> response) {
+            public void onResponse(@NonNull Call<Movie> call,@NonNull Response<Movie> response) {
                 Movie movie = response.body();
                 onFinishedListener.onFinished(movie);
             }
 
             @Override
-            public void onFailure(Call<Movie> call, Throwable t) {
+            public void onFailure(@NonNull Call<Movie> call,@NonNull Throwable t) {
                 onFinishedListener.onFailure(t);
-            }
-        });
-
-        apiService.getMovieDetails(movieId, API_KEY, CREDITS).enqueue(new Callback<Movie>() {
-            @Override
-            public void onResponse(Call<Movie> call, Response<Movie> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<Movie> call, Throwable t) {
-
             }
         });
 

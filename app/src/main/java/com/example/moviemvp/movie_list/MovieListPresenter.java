@@ -1,6 +1,6 @@
-package com.example.moviemvp.MovieList;
+package com.example.moviemvp.movie_list;
 
-import com.example.moviemvp.Model.Movie;
+import com.example.moviemvp.model.Movie;
 
 import java.util.List;
 

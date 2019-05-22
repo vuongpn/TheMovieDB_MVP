@@ -1,4 +1,4 @@
-package com.example.moviemvp.MovieList;
+package com.example.moviemvp.movie_list;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,12 +7,11 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
-import com.example.moviemvp.Model.Movie;
-import com.example.moviemvp.MovieDetail.MovieDetailsActivity;
+import com.example.moviemvp.model.Movie;
+import com.example.moviemvp.movie_detail.MovieDetailsActivity;
 import com.example.moviemvp.R;
 import com.example.moviemvp.adapter.MoviesAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.moviemvp.util.Constants.KEY_MOVIE_ID;
