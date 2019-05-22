@@ -76,12 +76,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
             tvMovieRatings = itemView.findViewById(R.id.tv_movie_ratings);
             ivMovieThumb = itemView.findViewById(R.id.iv_movie_thumb);
         }
-
         void bindData(final Movie movie, final int position) {
             tvMovieTitle.setText(movie.getTitle());
             tvMovieRatings.setText(String.valueOf(movie.getRating()));
             tvReleaseDate.setText(movie.getReleaseDate());
-
             Glide.with(itemView.getContext())
                     .load(Constants.IMAGE_BASE_URL + movie.getThumbPath())
                     .apply(new RequestOptions().placeholder(R.drawable.ic_place_holder).error(R.drawable.ic_place_holder))

@@ -1,5 +1,7 @@
 package com.example.moviemvp.MovieDetail;
 
+import android.support.annotation.NonNull;
+
 import com.example.moviemvp.Model.Movie;
 import com.example.moviemvp.network.ApiClient;
 import com.example.moviemvp.network.ApiInterface;
@@ -17,29 +19,16 @@ public class MovieDetailsModel implements MovieDetailsContract.Model {
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
-        Call<Movie> call = apiService.getMovieDetails(movieId, API_KEY, CREDITS);
-        call.enqueue(new Callback<Movie>() {
+        apiService.getMovieDetails(movieId, API_KEY, CREDITS).enqueue(new Callback<Movie>() {
             @Override
-            public void onResponse(Call<Movie> call, Response<Movie> response) {
+            public void onResponse(@NonNull Call<Movie> call,@NonNull Response<Movie> response) {
                 Movie movie = response.body();
                 onFinishedListener.onFinished(movie);
             }
 
             @Override
-            public void onFailure(Call<Movie> call, Throwable t) {
+            public void onFailure(@NonNull Call<Movie> call,@NonNull Throwable t) {
                 onFinishedListener.onFailure(t);
-            }
-        });
-
-        apiService.getMovieDetails(movieId, API_KEY, CREDITS).enqueue(new Callback<Movie>() {
-            @Override
-            public void onResponse(Call<Movie> call, Response<Movie> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<Movie> call, Throwable t) {
-
             }
         });
 

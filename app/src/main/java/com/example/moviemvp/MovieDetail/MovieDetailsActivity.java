@@ -30,9 +30,6 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
     private TextView tvMovieTitle;
     private TextView tvOverview;
     private TextView tvHomepageValue;
-    private String movieName;
-    private EditText tvRate;
-    private Button btn;
     private MovieDetailsPresenter movieDetailsPresenter;
     private String rate;
 
@@ -52,14 +49,14 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
         tvMovieTitle = findViewById(R.id.tv_movie_title);
         tvOverview = findViewById(R.id.tv_movie_overview);
         tvHomepageValue = findViewById(R.id.tv_homepage_value);
-        tvRate = findViewById(R.id.edtRate);
-        btn = findViewById(R.id.btn);
+        EditText tvRate = findViewById(R.id.edtRate);
+        Button btn = findViewById(R.id.btn);
     }
 
     @Override
     public void setDataToViews(Movie movie) {
         if (movie != null) {
-            movieName = movie.getTitle();
+            String movieName = movie.getTitle();
             tvMovieTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
             Glide.with(this)
