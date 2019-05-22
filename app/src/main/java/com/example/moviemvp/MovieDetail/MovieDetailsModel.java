@@ -16,7 +16,7 @@ public class MovieDetailsModel implements MovieDetailsContract.Model {
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
-        Call<Movie> call = apiService.getMovieDetails(movieId, "f7d99ad4fc2e4fff54e36188dcc15467", CREDITS);
+        Call<Movie> call = apiService.getMovieDetails(movieId, API_KEY, CREDITS);
         call.enqueue(new Callback<Movie>() {
             @Override
             public void onResponse(Call<Movie> call, Response<Movie> response) {
@@ -27,6 +27,18 @@ public class MovieDetailsModel implements MovieDetailsContract.Model {
             @Override
             public void onFailure(Call<Movie> call, Throwable t) {
                 onFinishedListener.onFailure(t);
+            }
+        });
+
+        apiService.getMovieDetails(movieId, API_KEY, CREDITS).enqueue(new Callback<Movie>() {
+            @Override
+            public void onResponse(Call<Movie> call, Response<Movie> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Movie> call, Throwable t) {
+
             }
         });
 
