@@ -4,12 +4,12 @@ package com.example.moviemvp.network;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.example.moviemvp.util.Constants.BASE_URL;
+
 public class ApiClient {
 
-    private static final String BASE_URL = "http://api.themoviedb.org/3/";
+
     private static Retrofit retrofit = null;
-    public static final String IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w185/";
-    public static final String BACKDROP_BASE_URL = "https://image.tmdb.org/t/p/w185/";
 
     public static Retrofit getClient() {
         if (retrofit == null) {

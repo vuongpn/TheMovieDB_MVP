@@ -8,6 +8,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.moviemvp.util.Constants.API_KEY;
 import static com.example.moviemvp.util.Constants.CREDITS;
 
 public class MovieDetailsModel implements MovieDetailsContract.Model {

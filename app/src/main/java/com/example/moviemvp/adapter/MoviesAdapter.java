@@ -13,6 +13,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.moviemvp.Model.Movie;
 import com.example.moviemvp.R;
 import com.example.moviemvp.network.ApiClient;
+import com.example.moviemvp.util.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,10 +83,9 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
             tvReleaseDate.setText(movie.getReleaseDate());
 
             Glide.with(itemView.getContext())
-                    .load(ApiClient.IMAGE_BASE_URL + movie.getThumbPath())
+                    .load(Constants.IMAGE_BASE_URL + movie.getThumbPath())
                     .apply(new RequestOptions().placeholder(R.drawable.ic_place_holder).error(R.drawable.ic_place_holder))
                     .into(ivMovieThumb);
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -20,6 +20,7 @@ import com.bumptech.glide.request.target.Target;
 import com.example.moviemvp.Model.Movie;
 import com.example.moviemvp.R;
 import com.example.moviemvp.network.ApiClient;
+import com.example.moviemvp.util.Constants;
 
 import static com.example.moviemvp.util.Constants.KEY_MOVIE_ID;
 
@@ -62,18 +63,7 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
             tvMovieTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
             Glide.with(this)
-                    .load(ApiClient.BACKDROP_BASE_URL + movie.getBackdropPath())
-                    .listener(new RequestListener<Drawable>() {
-                        @Override
-                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                            return false;
-                        }
-
-                        @Override
-                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                            return false;
-                        }
-                    })
+                    .load(Constants.BACKDROP_BASE_URL + movie.getBackdropPath())
                     .apply(new RequestOptions().placeholder(R.drawable.ic_place_holder).error(R.drawable.ic_place_holder))
                     .into(ivBackdrop);
             tvHomepageValue.setText(movie.getHomepage() != null ? movie.getHomepage() : "N/A");
