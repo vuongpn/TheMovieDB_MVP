@@ -43,7 +43,6 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
         moviesAdapter = new MoviesAdapter(this, moviesList);
         mLayoutManager = new LinearLayoutManager(this);
         rvMovieList.setLayoutManager(mLayoutManager);
-        rvMovieList.setItemAnimator(new DefaultItemAnimator());
         rvMovieList.setAdapter(moviesAdapter);
 
     }
