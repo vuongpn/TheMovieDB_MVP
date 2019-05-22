@@ -49,80 +49,36 @@ public class Movie {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
     public float getRating() {
         return rating;
-    }
-
-    public void setRating(float rating) {
-        this.rating = rating;
     }
 
     public String getThumbPath() {
         return thumbPath;
     }
 
-    public void setThumbPath(String thumbPath) {
-        this.thumbPath = thumbPath;
-    }
-
     public String getOverview() {
         return overview;
-    }
-
-    public void setOverview(String overview) {
-        this.overview = overview;
     }
 
     public String getBackdropPath() {
         return backdropPath;
     }
 
-    public void setBackdropPath(String backdropPath) {
-        this.backdropPath = backdropPath;
-    }
-
     public String getRunTime() {
         return runTime;
     }
 
-    public void setRunTime(String runTime) {
-        this.runTime = runTime;
-    }
-
-    public String getTagline() {
-        return tagline;
-    }
-
-    public void setTagline(String tagline) {
-        this.tagline = tagline;
-    }
-
     public String getHomepage() {
         return homepage;
-    }
-
-    public void setHomepage(String homepage) {
-        this.homepage = homepage;
     }
 
     @Override

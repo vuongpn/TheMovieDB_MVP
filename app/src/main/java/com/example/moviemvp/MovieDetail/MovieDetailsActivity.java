@@ -58,14 +58,6 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
     }
 
     @Override
-    public void onSuccess() {
-    }
-
-    @Override
-    public void onFailure() {
-    }
-
-    @Override
     public void setDataToViews(Movie movie) {
         if (movie != null) {
             movieName = movie.getTitle();

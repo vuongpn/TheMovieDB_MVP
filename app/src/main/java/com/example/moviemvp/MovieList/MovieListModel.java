@@ -12,8 +12,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MovieListModel implements MovieListContract.Model {
-
-
     @Override
     public void getMovieList(final OnFinishedListener onFinishedListener, int pageNo) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -22,7 +20,7 @@ public class MovieListModel implements MovieListContract.Model {
             @Override
             public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
                 List<Movie> movies = response.body().getResults();
-                onFinishedListener.onFinished(movies);
+                onFinishedListener.onSuccess(movies);
             }
 
             @Override

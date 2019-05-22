@@ -17,10 +17,6 @@ public interface MovieDetailsContract {
 
     interface View {
 
-        void onSuccess();
-
-        void onFailure();
-
         void setDataToViews(Movie movie);
 
         void onResponseFailure(Throwable throwable);

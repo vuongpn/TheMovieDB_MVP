@@ -21,37 +21,17 @@ public class MovieListPresenter implements MovieListContract.Presenter, MovieLis
     }
 
     @Override
-    public void getMoreData(int pageNo) {
-
-        if (movieListView != null) {
-            movieListView.onSuccess();
-        }
-        movieListModel.getMovieList(this, pageNo);
-    }
-
-    @Override
     public void requestDataFromServer() {
-
-        if (movieListView != null) {
-            movieListView.onSuccess();
-        }
         movieListModel.getMovieList(this, 1);
     }
 
     @Override
-    public void onFinished(List<Movie> movieArrayList) {
-        movieListView.setDataToRecyclerView(movieArrayList);
-        if (movieListView != null) {
-            movieListView.onFailure();
-        }
+    public void onSuccess(List<Movie> movieArrayList) {
+        movieListView.onSuccess(movieArrayList);
     }
 
     @Override
     public void onFailure(Throwable t) {
-
-        movieListView.onResponseFailure(t);
-        if (movieListView != null) {
-            movieListView.onFailure();
-        }
+        movieListView.onFailure(t);
     }
 }

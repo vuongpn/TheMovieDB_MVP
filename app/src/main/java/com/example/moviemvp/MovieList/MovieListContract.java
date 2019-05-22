@@ -7,7 +7,7 @@ import java.util.List;
 public interface MovieListContract {
     interface Model {
         interface OnFinishedListener {
-            void onFinished(List<Movie> movieArrayList);
+            void onSuccess(List<Movie> movieArrayList);
 
             void onFailure(Throwable t);
         }
@@ -17,19 +17,14 @@ public interface MovieListContract {
     }
 
     interface View {
-        void onSuccess();
 
-        void onFailure();
+        void onSuccess(List<Movie> movieList);
 
-        void setDataToRecyclerView(List<Movie> movieList);
-
-        void onResponseFailure(Throwable t);
+        void onFailure(Throwable t);
     }
 
     interface Presenter {
         void onDestroy();
-
-        void getMoreData(int pageNo);
 
         void requestDataFromServer();
     }

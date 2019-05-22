@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
@@ -23,11 +22,6 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
     private RecyclerView rvMovieList;
     private List<Movie> moviesList;
     private MoviesAdapter moviesAdapter;
-    private int pageNo = 1;
-    private int previousTotal = 0;
-    private boolean loading = true;
-    private int visibleThreshold = 5;
-    int firstVisibleItem, visibleItemCount, totalItemCount;
     private GridLayoutManager mLayoutManager;
 
 
@@ -36,7 +30,6 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_movie);
         initUI();
-        setListeners();
         movieListPresenter = new MovieListPresenter(this);
         movieListPresenter.requestDataFromServer();
     }
@@ -45,58 +38,22 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
         rvMovieList = findViewById(R.id.rv_movie_list);
         moviesList = new ArrayList<>();
         moviesAdapter = new MoviesAdapter(this, moviesList);
-        mLayoutManager = new GridLayoutManager(this,3);
+        mLayoutManager = new GridLayoutManager(this, 3);
         rvMovieList.setLayoutManager(mLayoutManager);
         rvMovieList.setAdapter(moviesAdapter);
 
     }
 
-    private void setListeners() {
-
-        rvMovieList.addOnScrollListener(new RecyclerView.OnScrollListener() {
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                visibleItemCount = rvMovieList.getChildCount();
-                totalItemCount = mLayoutManager.getItemCount();
-                firstVisibleItem = mLayoutManager.findFirstVisibleItemPosition();
-                if (loading) {
-                    if (totalItemCount > previousTotal) {
-                        loading = false;
-                        previousTotal = totalItemCount;
-                    }
-                }
-                if (!loading && (totalItemCount - visibleItemCount)
-                        <= (firstVisibleItem + visibleThreshold)) {
-                    movieListPresenter.getMoreData(pageNo);
-                    loading = true;
-                }
-
-            }
-        });
-    }
 
     @Override
-    public void onSuccess() {
-
-    }
-
-    @Override
-    public void onFailure() {
-
-    }
-
-    @Override
-    public void setDataToRecyclerView(List<Movie> movieArrayList) {
+    public void onSuccess(List<Movie> movieArrayList) {
         moviesList.addAll(movieArrayList);
         moviesAdapter.notifyDataSetChanged();
-        pageNo++;
     }
 
 
     @Override
-    public void onResponseFailure(Throwable throwable) {
+    public void onFailure(Throwable throwable) {
         Toast.makeText(this, getString(R.string.communication_error), Toast.LENGTH_LONG).show();
     }
 

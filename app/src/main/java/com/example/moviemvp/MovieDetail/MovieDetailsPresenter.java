@@ -13,33 +13,23 @@ public class MovieDetailsPresenter implements MovieDetailsContract.Presenter, Mo
 
     @Override
     public void onDestroy() {
-
         movieDetailView = null;
     }
 
     @Override
     public void requestMovieData(int movieId) {
 
-        if (movieDetailView != null) {
-            movieDetailView.onSuccess();
-        }
         movieDetailsModel.getMovieDetails(this, movieId);
     }
 
     @Override
     public void onFinished(Movie movie) {
-
-        if (movieDetailView != null) {
-            movieDetailView.onFailure();
-        }
         movieDetailView.setDataToViews(movie);
     }
 
     @Override
     public void onFailure(Throwable t) {
-        if (movieDetailView != null) {
-            movieDetailView.onFailure();
-        }
+
         movieDetailView.onResponseFailure(t);
     }
 }
