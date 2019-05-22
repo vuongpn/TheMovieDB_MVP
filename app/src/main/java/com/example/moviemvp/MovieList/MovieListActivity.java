@@ -3,6 +3,7 @@ package com.example.moviemvp.MovieList;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
@@ -27,7 +28,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
     private boolean loading = true;
     private int visibleThreshold = 5;
     int firstVisibleItem, visibleItemCount, totalItemCount;
-    private LinearLayoutManager mLayoutManager;
+    private GridLayoutManager mLayoutManager;
 
 
     @Override
@@ -44,7 +45,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
         rvMovieList = findViewById(R.id.rv_movie_list);
         moviesList = new ArrayList<>();
         moviesAdapter = new MoviesAdapter(this, moviesList);
-        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager = new GridLayoutManager(this,3);
         rvMovieList.setLayoutManager(mLayoutManager);
         rvMovieList.setAdapter(moviesAdapter);
 

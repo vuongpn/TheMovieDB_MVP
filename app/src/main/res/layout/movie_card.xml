@@ -63,7 +63,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="0.7"
+                    android:layout_weight="0.6"
                     android:textSize="@dimen/movie_content_size" />
 
 
@@ -72,7 +72,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.5"
                     android:drawableLeft="@drawable/star"
                     android:drawablePadding="5dp"
                     android:gravity="center_vertical"
