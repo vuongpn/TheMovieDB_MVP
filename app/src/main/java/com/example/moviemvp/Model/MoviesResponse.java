@@ -1,4 +1,5 @@
 package com.example.moviemvp.Model;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;

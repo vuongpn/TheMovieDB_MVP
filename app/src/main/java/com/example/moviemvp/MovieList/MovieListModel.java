@@ -1,9 +1,9 @@
 package com.example.moviemvp.MovieList;
 
-import com.example.moviemvp.network.ApiClient;
-import com.example.moviemvp.network.ApiInterface;
 import com.example.moviemvp.Model.Movie;
 import com.example.moviemvp.Model.MoviesResponse;
+import com.example.moviemvp.network.ApiClient;
+import com.example.moviemvp.network.ApiInterface;
 
 import java.util.List;
 

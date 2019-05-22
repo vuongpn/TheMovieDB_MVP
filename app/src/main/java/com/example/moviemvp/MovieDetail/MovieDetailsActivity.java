@@ -4,12 +4,8 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,12 +17,9 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
-import com.example.moviemvp.network.ApiClient;
 import com.example.moviemvp.Model.Movie;
 import com.example.moviemvp.R;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.moviemvp.network.ApiClient;
 
 import static com.example.moviemvp.util.Constants.KEY_MOVIE_ID;
 
@@ -41,6 +34,7 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
     private Button btn;
     private MovieDetailsPresenter movieDetailsPresenter;
     private String rate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,8 +53,8 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
         tvMovieTitle = findViewById(R.id.tv_movie_title);
         tvOverview = findViewById(R.id.tv_movie_overview);
         tvHomepageValue = findViewById(R.id.tv_homepage_value);
-        tvRate=findViewById(R.id.edtRate);
-        btn=findViewById(R.id.btn);
+        tvRate = findViewById(R.id.edtRate);
+        btn = findViewById(R.id.btn);
     }
 
     @Override
@@ -84,6 +78,7 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
                         public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                             return false;
                         }
+
                         @Override
                         public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                             return false;

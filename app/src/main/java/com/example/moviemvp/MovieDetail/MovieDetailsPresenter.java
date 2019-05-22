@@ -5,10 +5,12 @@ import com.example.moviemvp.Model.Movie;
 public class MovieDetailsPresenter implements MovieDetailsContract.Presenter, MovieDetailsContract.Model.OnFinishedListener {
     private MovieDetailsContract.View movieDetailView;
     private MovieDetailsContract.Model movieDetailsModel;
-     MovieDetailsPresenter(MovieDetailsContract.View movieDetailView) {
+
+    MovieDetailsPresenter(MovieDetailsContract.View movieDetailView) {
         this.movieDetailView = movieDetailView;
         this.movieDetailsModel = new MovieDetailsModel();
     }
+
     @Override
     public void onDestroy() {
 
@@ -18,7 +20,7 @@ public class MovieDetailsPresenter implements MovieDetailsContract.Presenter, Mo
     @Override
     public void requestMovieData(int movieId) {
 
-        if(movieDetailView != null){
+        if (movieDetailView != null) {
             movieDetailView.onSuccess();
         }
         movieDetailsModel.getMovieDetails(this, movieId);
@@ -27,7 +29,7 @@ public class MovieDetailsPresenter implements MovieDetailsContract.Presenter, Mo
     @Override
     public void onFinished(Movie movie) {
 
-        if(movieDetailView != null){
+        if (movieDetailView != null) {
             movieDetailView.onFailure();
         }
         movieDetailView.setDataToViews(movie);
@@ -35,7 +37,7 @@ public class MovieDetailsPresenter implements MovieDetailsContract.Presenter, Mo
 
     @Override
     public void onFailure(Throwable t) {
-        if(movieDetailView != null){
+        if (movieDetailView != null) {
             movieDetailView.onFailure();
         }
         movieDetailView.onResponseFailure(t);

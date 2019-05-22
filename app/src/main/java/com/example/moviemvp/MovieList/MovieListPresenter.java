@@ -10,10 +10,11 @@ public class MovieListPresenter implements MovieListContract.Presenter, MovieLis
 
     private MovieListContract.Model movieListModel;
 
-     MovieListPresenter(MovieListContract.View movieListView) {
+    MovieListPresenter(MovieListContract.View movieListView) {
         this.movieListView = movieListView;
         movieListModel = new MovieListModel();
     }
+
     @Override
     public void onDestroy() {
         this.movieListView = null;

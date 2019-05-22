@@ -1,6 +1,7 @@
 package com.example.moviemvp.Model;
 
 import com.google.gson.annotations.SerializedName;
+
 public class Movie {
 
     private int id;
@@ -31,7 +32,7 @@ public class Movie {
     @SerializedName("homepage")
     private String homepage;
 
-    public Movie(int id, String title, String releaseDate, float rating, String thumbPath, String overview, String backdropPath,  String runTime, String tagline, String homepage) {
+    public Movie(int id, String title, String releaseDate, float rating, String thumbPath, String overview, String backdropPath, String runTime, String tagline, String homepage) {
         this.id = id;
         this.title = title;
         this.releaseDate = releaseDate;

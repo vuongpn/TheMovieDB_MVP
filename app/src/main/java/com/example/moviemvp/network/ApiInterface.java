@@ -19,8 +19,8 @@ public interface ApiInterface {
     @GET("movie/{movie_id}")
     Call<Movie> getMovieDetails(@Path("movie_id") int movieId, @Query("api_key") String apiKey, @Query("append_to_response") String credits);
 
-    @Headers("Content-Type:application/json;charset=utf-8" )
+    @Headers("Content-Type:application/json;charset=utf-8")
     @POST("/movie/{movie_id}/rating")
-    Call<Rate> sendRate(@Field("movie_id") int movieId,@Field("api_key") String apiKey);
+    Call<Rate> sendRate(@Field("movie_id") int movieId, @Field("api_key") String apiKey);
 }
 
