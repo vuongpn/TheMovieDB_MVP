@@ -17,13 +17,9 @@ import java.util.List;
 
 import static com.example.moviemvp.util.Constants.KEY_MOVIE_ID;
 
-public class MovieListActivity extends AppCompatActivity implements MovieListContract.View, MovieItemClickListener {
+public class MovieListActivity extends AppCompatActivity implements MovieListContract.View, MoviesAdapter.OnListClickListener {
     private MovieListPresenter movieListPresenter;
-    private RecyclerView rvMovieList;
-    private List<Movie> moviesList;
     private MoviesAdapter moviesAdapter;
-    private GridLayoutManager mLayoutManager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,22 +31,19 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
     }
 
     private void initUI() {
-        rvMovieList = findViewById(R.id.rv_movie_list);
-        moviesList = new ArrayList<>();
-        moviesAdapter = new MoviesAdapter(this, moviesList);
-        mLayoutManager = new GridLayoutManager(this, 3);
+        RecyclerView rvMovieList = findViewById(R.id.rv_movie_list);
+        moviesAdapter = new MoviesAdapter();
+        GridLayoutManager mLayoutManager = new GridLayoutManager(this, 3);
         rvMovieList.setLayoutManager(mLayoutManager);
         rvMovieList.setAdapter(moviesAdapter);
 
+        moviesAdapter.setOnListClickedListener(this);
     }
-
 
     @Override
-    public void onSuccess(List<Movie> movieArrayList) {
-        moviesList.addAll(movieArrayList);
-        moviesAdapter.notifyDataSetChanged();
+    public void onSuccess(List<Movie> movies) {
+        moviesAdapter.setMovies(movies);
     }
-
 
     @Override
     public void onFailure(Throwable throwable) {
@@ -64,10 +57,9 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
     }
 
     @Override
-    public void onMovieItemClick(int position) {
+    public void onMovieClicked(Movie movie, int position) {
         Intent detailIntent = new Intent(this, MovieDetailsActivity.class);
-        detailIntent.putExtra(KEY_MOVIE_ID, moviesList.get(position).getId());
+        detailIntent.putExtra(KEY_MOVIE_ID, movie.getId());
         startActivity(detailIntent);
     }
-
 }
