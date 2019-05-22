@@ -9,6 +9,9 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,17 +37,14 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
     private TextView tvOverview;
     private TextView tvHomepageValue;
     private String movieName;
-
+    private EditText tvRate;
+    private Button btn;
     private MovieDetailsPresenter movieDetailsPresenter;
-
+    private String rate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        getSupportActionBar().setDisplayShowHomeEnabled(false);
         initUI();
         Intent mIntent = getIntent();
         int movieId = mIntent.getIntExtra(KEY_MOVIE_ID, 0);
@@ -59,8 +59,9 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
         tvMovieTitle = findViewById(R.id.tv_movie_title);
         tvOverview = findViewById(R.id.tv_movie_overview);
         tvHomepageValue = findViewById(R.id.tv_homepage_value);
+        tvRate=findViewById(R.id.edtRate);
+        btn=findViewById(R.id.btn);
     }
-
 
     @Override
     public void onSuccess() {

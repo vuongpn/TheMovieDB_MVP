@@ -10,8 +10,7 @@ public class MovieDetailsModel implements MovieDetailsContract.Model {
     @Override
     public void getMovieDetails(final OnFinishedListener onFinishedListener, int movieId) {
 
-        ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
         Call<Movie> call = apiService.getMovieDetails(movieId,"f7d99ad4fc2e4fff54e36188dcc15467", CREDITS);
         call.enqueue(new Callback<Movie>() {
