@@ -1,4 +1,4 @@
-package com.example.moviemvp.Model;
+package com.example.moviemvp.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

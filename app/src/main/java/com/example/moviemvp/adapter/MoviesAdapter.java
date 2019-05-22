@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.moviemvp.Model.Movie;
+import com.example.moviemvp.model.Movie;
 import com.example.moviemvp.R;
 import com.example.moviemvp.network.ApiClient;
 

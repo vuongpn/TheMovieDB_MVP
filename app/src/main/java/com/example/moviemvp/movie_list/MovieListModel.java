@@ -1,7 +1,7 @@
-package com.example.moviemvp.MovieList;
+package com.example.moviemvp.movie_list;
 
-import com.example.moviemvp.Model.Movie;
-import com.example.moviemvp.Model.MoviesResponse;
+import com.example.moviemvp.model.Movie;
+import com.example.moviemvp.model.MoviesResponse;
 import com.example.moviemvp.network.ApiClient;
 import com.example.moviemvp.network.ApiInterface;
 
@@ -11,14 +11,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.moviemvp.util.Constants.API_KEY;
+
 public class MovieListModel implements MovieListContract.Model {
     @Override
     public void getMovieList(final OnFinishedListener onFinishedListener, int pageNo) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<MoviesResponse> call = apiService.getPopularMovies("f7d99ad4fc2e4fff54e36188dcc15467", pageNo);
-        call.enqueue(new Callback<MoviesResponse>() {
+
+        apiService.getPopularMovies(API_KEY, pageNo).enqueue(new Callback<MoviesResponse>() {
             @Override
             public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
+                assert response.body() != null;
                 List<Movie> movies = response.body().getResults();
                 onFinishedListener.onSuccess(movies);
             }
