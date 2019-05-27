@@ -50,7 +50,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 //    public void clearMovies() {
 //        movieList.clear();
 //        notifyDataSetChanged();
-//    }notifyDataSetChanged
+//    }
 
     public void setOnListClickedListener(OnListClickListener listener) {
         this.listener = listener;
