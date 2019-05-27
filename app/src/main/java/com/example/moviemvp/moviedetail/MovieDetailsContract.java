@@ -1,6 +1,6 @@
-package com.example.moviemvp.MovieDetail;
+package com.example.moviemvp.moviedetail;
 
-import com.example.moviemvp.Model.Movie;
+import com.example.moviemvp.model.Movie;
 
 public interface MovieDetailsContract {
 

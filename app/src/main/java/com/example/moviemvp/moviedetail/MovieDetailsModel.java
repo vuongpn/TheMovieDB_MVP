@@ -1,8 +1,8 @@
-package com.example.moviemvp.MovieDetail;
+package com.example.moviemvp.moviedetail;
 
 import android.support.annotation.NonNull;
 
-import com.example.moviemvp.Model.Movie;
+import com.example.moviemvp.model.Movie;
 import com.example.moviemvp.network.ApiClient;
 import com.example.moviemvp.network.ApiInterface;
 

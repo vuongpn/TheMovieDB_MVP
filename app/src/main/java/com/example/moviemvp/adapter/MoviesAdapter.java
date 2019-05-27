@@ -10,9 +10,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.moviemvp.Model.Movie;
+import com.example.moviemvp.model.Movie;
 import com.example.moviemvp.R;
-import com.example.moviemvp.network.ApiClient;
 import com.example.moviemvp.util.Constants;
 
 import java.util.ArrayList;
@@ -42,16 +41,16 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
         notifyDataSetChanged();
     }
 
-    public void appendMovies(List<Movie> movies) {
-        int startPos = movieList.size();
-        movieList.addAll(movies);
-        notifyItemRangeInserted(startPos, movies.size());
-    }
-
-    public void clearMovies() {
-        movieList.clear();
-        notifyDataSetChanged();
-    }
+//    public void appendMovies(List<Movie> movies) {
+//        int startPos = movieList.size();
+//        movieList.addAll(movies);
+//        notifyItemRangeInserted(startPos, movies.size());
+//    }
+//
+//    public void clearMovies() {
+//        movieList.clear();
+//        notifyDataSetChanged();
+//    }notifyDataSetChanged
 
     public void setOnListClickedListener(OnListClickListener listener) {
         this.listener = listener;

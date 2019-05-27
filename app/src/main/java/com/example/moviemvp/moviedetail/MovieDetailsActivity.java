@@ -1,9 +1,7 @@
-package com.example.moviemvp.MovieDetail;
+package com.example.moviemvp.moviedetail;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
@@ -12,14 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.Target;
-import com.example.moviemvp.Model.Movie;
+import com.example.moviemvp.model.Movie;
 import com.example.moviemvp.R;
-import com.example.moviemvp.network.ApiClient;
 import com.example.moviemvp.util.Constants;
 
 import static com.example.moviemvp.util.Constants.KEY_MOVIE_ID;
@@ -31,7 +24,7 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
     private TextView tvOverview;
     private TextView tvHomepageValue;
     private MovieDetailsPresenter movieDetailsPresenter;
-    private String rate;
+//    private String rate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,21 +42,20 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
         tvMovieTitle = findViewById(R.id.tv_movie_title);
         tvOverview = findViewById(R.id.tv_movie_overview);
         tvHomepageValue = findViewById(R.id.tv_homepage_value);
-        EditText tvRate = findViewById(R.id.edtRate);
-        Button btn = findViewById(R.id.btn);
+//        EditText tvRate = findViewById(R.id.edtRate);
+//        Button btn = findViewById(R.id.btn);
     }
 
     @Override
     public void setDataToViews(Movie movie) {
         if (movie != null) {
-            String movieName = movie.getTitle();
             tvMovieTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
             Glide.with(this)
                     .load(Constants.BACKDROP_BASE_URL + movie.getBackdropPath())
                     .apply(new RequestOptions().placeholder(R.drawable.ic_place_holder).error(R.drawable.ic_place_holder))
                     .into(ivBackdrop);
-            tvHomepageValue.setText(movie.getHomepage() != null ? movie.getHomepage() : "N/A");
+            tvHomepageValue.setText(movie.getHomepage() != null ? movie.getHomepage() : "Unknown");
         }
 
     }
