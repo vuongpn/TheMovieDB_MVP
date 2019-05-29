@@ -33,7 +33,7 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
         initUI();
         Intent mIntent = getIntent();
         int movieId = mIntent.getIntExtra(KEY_MOVIE_ID, 0);
-        movieDetailsPresenter = new MovieDetailsPresenter(this);
+        movieDetailsPresenter = new MovieDetailsPresenter(this,new MovieDetailsModel());
         movieDetailsPresenter.requestMovieData(movieId);
     }
 

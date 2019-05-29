@@ -25,7 +25,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_movie);
         initUI();
-        movieListPresenter = new MovieListPresenter(this);
+        movieListPresenter = new MovieListPresenter(this, new MovieListModel());
         movieListPresenter.requestDataFromServer();
     }
 

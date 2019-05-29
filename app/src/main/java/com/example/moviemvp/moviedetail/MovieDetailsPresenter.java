@@ -6,9 +6,9 @@ public class MovieDetailsPresenter implements MovieDetailsContract.Presenter, Mo
     private MovieDetailsContract.View movieDetailView;
     private MovieDetailsContract.Model movieDetailsModel;
 
-    MovieDetailsPresenter(MovieDetailsContract.View movieDetailView) {
+    MovieDetailsPresenter(MovieDetailsContract.View movieDetailView,MovieDetailsModel movieDetailsModel) {
         this.movieDetailView = movieDetailView;
-        this.movieDetailsModel = new MovieDetailsModel();
+        this.movieDetailsModel = movieDetailsModel;
     }
 
     @Override
