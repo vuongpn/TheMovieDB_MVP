@@ -110,6 +110,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:textSize="@dimen/overview_text_size"
+                    android:autoLink="web"
                     android:typeface="sans" />
 
                 <EditText
