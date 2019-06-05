@@ -14,7 +14,7 @@ import com.example.moviemvp.util.Constants.CREDITS
 class MovieDetailsModel : MovieDetailsContract.Model {
     override fun getMovieDetails(onFinishedListener: MovieDetailsContract.Model.OnFinishedListener, movieId: Int) {
 
-        val apiService = ApiClient.client!!.create(ApiInterface::class.java!!)
+        val apiService = ApiClient.client!!.create(ApiInterface::class.java)
 
         apiService.getMovieDetails(movieId, API_KEY, CREDITS).enqueue(object : Callback<Movie> {
             override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
