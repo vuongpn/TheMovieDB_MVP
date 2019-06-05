@@ -14,6 +14,7 @@ import static com.example.moviemvp.util.Constants.API_KEY;
 import static com.example.moviemvp.util.Constants.CREDITS;
 
 public class MovieDetailsModel implements MovieDetailsContract.Model {
+
     @Override
     public void getMovieDetails(final OnFinishedListener onFinishedListener, int movieId) {
 

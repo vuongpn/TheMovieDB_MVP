@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.moviemvp.model.Movie;
 import com.example.moviemvp.R;
+import com.example.moviemvp.model.Movie;
 import com.example.moviemvp.util.Constants;
 
 import java.util.ArrayList;
@@ -25,7 +25,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_card, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext())
+                                      .inflate(R.layout.movie_card, parent, false);
         return new MyViewHolder(itemView);
     }
 
@@ -75,13 +76,16 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
             tvMovieRatings = itemView.findViewById(R.id.tv_movie_ratings);
             ivMovieThumb = itemView.findViewById(R.id.iv_movie_thumb);
         }
+
         void bindData(final Movie movie, final int position) {
             tvMovieTitle.setText(movie.getTitle());
             tvMovieRatings.setText(String.valueOf(movie.getRating()));
             tvReleaseDate.setText(movie.getReleaseDate());
             Glide.with(itemView.getContext())
                     .load(Constants.IMAGE_BASE_URL + movie.getThumbPath())
-                    .apply(new RequestOptions().placeholder(R.drawable.ic_place_holder).error(R.drawable.ic_place_holder))
+                    .apply(new RequestOptions()
+                    .placeholder(R.drawable.ic_place_holder)
+                    .error(R.drawable.ic_place_holder))
                     .into(ivMovieThumb);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

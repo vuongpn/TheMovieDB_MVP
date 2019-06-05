@@ -13,10 +13,8 @@ import java.util.List;
 public class MovieListPresenterTest {
 
     private MovieListPresenter presenter;
-
     @Mock
     private MovieListContract.View view;
-
     @Mock
     private MovieListContract.Model model;
     @Mock
@@ -39,7 +37,9 @@ public class MovieListPresenterTest {
     @Test
     public void requestDataFromServer() {
         presenter.requestDataFromServer();
-        Mockito.verify(model).getMovieList(Mockito.any(MovieListContract.Model.OnFinishedListener.class), Mockito.eq(1));
+        Mockito.verify(model).getMovieList(Mockito.any
+                (MovieListContract.Model.OnFinishedListener.class)
+                , Mockito.eq(1));
     }
 
     @Test

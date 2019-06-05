@@ -3,10 +3,11 @@ package com.example.moviemvp.moviedetail;
 import com.example.moviemvp.model.Movie;
 
 public class MovieDetailsPresenter implements MovieDetailsContract.Presenter, MovieDetailsContract.Model.OnFinishedListener {
+
     private MovieDetailsContract.View movieDetailView;
     private MovieDetailsContract.Model movieDetailsModel;
 
-    MovieDetailsPresenter(MovieDetailsContract.View movieDetailView,MovieDetailsModel movieDetailsModel) {
+    MovieDetailsPresenter(MovieDetailsContract.View movieDetailView, MovieDetailsModel movieDetailsModel) {
         this.movieDetailView = movieDetailView;
         this.movieDetailsModel = movieDetailsModel;
     }
@@ -18,7 +19,6 @@ public class MovieDetailsPresenter implements MovieDetailsContract.Presenter, Mo
 
     @Override
     public void requestMovieData(int movieId) {
-
         movieDetailsModel.getMovieDetails(this, movieId);
     }
 
@@ -29,7 +29,6 @@ public class MovieDetailsPresenter implements MovieDetailsContract.Presenter, Mo
 
     @Override
     public void onFailure(Throwable t) {
-
         movieDetailView.onResponseFailure(t);
     }
 }

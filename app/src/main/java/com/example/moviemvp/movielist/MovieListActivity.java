@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.moviemvp.R;
@@ -19,6 +20,7 @@ import static com.example.moviemvp.util.Constants.KEY_MOVIE_ID;
 public class MovieListActivity extends AppCompatActivity implements MovieListContract.View, MoviesAdapter.OnListClickListener {
     private MovieListPresenter movieListPresenter;
     private MoviesAdapter moviesAdapter;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
     private void initUI() {
         RecyclerView rvMovieList = findViewById(R.id.rv_movie_list);
         moviesAdapter = new MoviesAdapter();
-        rvMovieList.setLayoutManager(new GridLayoutManager(this,3));
+        rvMovieList.setLayoutManager(new GridLayoutManager(this, 3));
         rvMovieList.setAdapter(moviesAdapter);
         moviesAdapter.setOnListClickedListener(this);
     }

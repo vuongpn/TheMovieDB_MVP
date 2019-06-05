@@ -17,7 +17,6 @@ public interface MovieListContract {
     }
 
     interface View {
-
         void onSuccess(List<Movie> movieList);
 
         void onFailure(Throwable t);
