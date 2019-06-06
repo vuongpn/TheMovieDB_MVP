@@ -6,16 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.moviemvp.model.Movie
 import com.example.moviemvp.R
+import com.example.moviemvp.model.Movie
 import com.example.moviemvp.network.ApiClient
+import java.util.*
 
-import java.util.ArrayList
-
- class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MyViewHolder>() {
+class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MyViewHolder>() {
 
     private val movieList = ArrayList<Movie>()
     private var listener: OnListClickListener? = null

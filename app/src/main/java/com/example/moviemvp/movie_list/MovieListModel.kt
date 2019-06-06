@@ -1,15 +1,12 @@
 package com.example.moviemvp.movie_list
 
-import com.example.moviemvp.model.Movie
 import com.example.moviemvp.model.MoviesResponse
 import com.example.moviemvp.network.ApiClient
 import com.example.moviemvp.network.ApiInterface
-
+import com.example.moviemvp.util.Constants.API_KEY
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
-import com.example.moviemvp.util.Constants.API_KEY
 
 class MovieListModel : MovieListContract.Model {
     override fun getMovieList(onFinishedListener: MovieListContract.Model.OnFinishedListener, pageNo: Int) {

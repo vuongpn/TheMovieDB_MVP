@@ -1,6 +1,5 @@
 package com.example.moviemvp.movie_detail
 
-import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -10,17 +9,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
-import com.example.moviemvp.model.Movie
 import com.example.moviemvp.R
+import com.example.moviemvp.model.Movie
 import com.example.moviemvp.network.ApiClient
-
 import com.example.moviemvp.util.Constants.KEY_MOVIE_ID
 
 class MovieDetailsActivity : AppCompatActivity(), MovieDetailsContract.View {

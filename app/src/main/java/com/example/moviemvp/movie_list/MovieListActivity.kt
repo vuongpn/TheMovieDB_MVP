@@ -6,12 +6,10 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.Toast
-
-import com.example.moviemvp.model.Movie
-import com.example.moviemvp.movie_detail.MovieDetailsActivity
 import com.example.moviemvp.R
 import com.example.moviemvp.adapter.MoviesAdapter
-
+import com.example.moviemvp.model.Movie
+import com.example.moviemvp.movie_detail.MovieDetailsActivity
 import com.example.moviemvp.util.Constants.KEY_MOVIE_ID
 
 class MovieListActivity : AppCompatActivity(), MovieListContract.View, MoviesAdapter.OnListClickListener {

@@ -2,7 +2,7 @@ package com.example.moviemvp.model
 
 import com.google.gson.annotations.SerializedName
 
-class Movie(val id: Int, val title: String, @field:SerializedName("release_date")
+data class Movie(val id: Int, val title: String, @field:SerializedName("release_date")
 val releaseDate: String, @field:SerializedName("vote_average")
             val rating: Float, @field:SerializedName("poster_path")
             val thumbPath: String, @field:SerializedName("overview")
