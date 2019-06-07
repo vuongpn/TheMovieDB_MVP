@@ -14,7 +14,6 @@ class MovieDetailsPresenter internal constructor(private var movieDetailView: Mo
     }
 
     override fun requestMovieData(movieId: Int) {
-
         movieDetailsModel.getMovieDetails(this, movieId)
     }
 
@@ -23,7 +22,6 @@ class MovieDetailsPresenter internal constructor(private var movieDetailView: Mo
     }
 
     override fun onFailure(t: Throwable) {
-
         movieDetailView!!.onResponseFailure(t)
     }
 }
