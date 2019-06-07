@@ -10,11 +10,13 @@ import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
  class MovieListModelTest {
+
     private lateinit var model: MovieListModel
     private lateinit var listener: OnFinishedListener
 
     @Before
     fun setUp() {
+
         MockitoAnnotations.initMocks(this)
         model= MovieListModel()
         listener=Mockito.mock(OnFinishedListener::class.java)
@@ -22,6 +24,7 @@ import org.mockito.MockitoAnnotations
 
     @Test
     fun getMovieList() {
+
         model.getMovieList(listener, Mockito.eq(1))
     }
 }

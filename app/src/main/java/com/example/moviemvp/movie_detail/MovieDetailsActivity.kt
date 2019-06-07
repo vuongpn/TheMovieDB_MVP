@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -27,7 +25,7 @@ class MovieDetailsActivity : AppCompatActivity(), MovieDetailsContract.View {
     private var tvOverview: TextView? = null
     private var tvHomepageValue: TextView? = null
     private var movieDetailsPresenter: MovieDetailsPresenter? = null
-    private val rate: String? = null
+//    private val rate: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,12 +42,11 @@ class MovieDetailsActivity : AppCompatActivity(), MovieDetailsContract.View {
         tvMovieTitle = findViewById(R.id.tv_movie_title)
         tvOverview = findViewById(R.id.tv_movie_overview)
         tvHomepageValue = findViewById(R.id.tv_homepage_value)
-        val tvRate = findViewById<EditText>(R.id.edtRate)
-        val btn = findViewById<Button>(R.id.btn)
+//        val tvRate = findViewById<EditText>(R.id.edtRate)
+//        val btn = findViewById<Button>(R.id.btn)
     }
 
     override fun setDataToViews(movie: Movie) {
-        val movieName = movie.title
         tvMovieTitle!!.text = movie.title
         tvOverview!!.text = movie.overview
         Glide.with(this)
@@ -65,7 +62,7 @@ class MovieDetailsActivity : AppCompatActivity(), MovieDetailsContract.View {
                 })
                 .apply(RequestOptions().placeholder(R.drawable.ic_place_holder).error(R.drawable.ic_place_holder))
                 .into(ivBackdrop!!)
-        tvHomepageValue!!.text = movie.homepage ?: "N/A"
+        tvHomepageValue!!.text = movie.homepage
 
     }
 

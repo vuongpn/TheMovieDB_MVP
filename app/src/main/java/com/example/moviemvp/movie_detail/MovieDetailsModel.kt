@@ -10,12 +10,15 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MovieDetailsModel : MovieDetailsContract.Model {
+
     override fun getMovieDetails(onFinishedListener: MovieDetailsContract.Model.OnFinishedListener, movieId: Int) {
 
         val apiService = ApiClient.client!!.create(ApiInterface::class.java)
 
         apiService.getMovieDetails(movieId, API_KEY, CREDITS).enqueue(object : Callback<Movie> {
+
             override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
+
                 response.body() != null
                 val movie: Movie = response.body()!!
                 onFinishedListener.onFinished(movie)

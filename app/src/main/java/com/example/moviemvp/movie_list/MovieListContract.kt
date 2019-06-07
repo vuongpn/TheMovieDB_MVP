@@ -3,8 +3,11 @@ package com.example.moviemvp.movie_list
 import com.example.moviemvp.model.Movie
 
 interface MovieListContract {
+
     interface Model {
+
         interface OnFinishedListener {
+
             fun onSuccess(movieArrayList: List<Movie>)
 
             fun onFailure(t: Throwable)
@@ -22,6 +25,7 @@ interface MovieListContract {
     }
 
     interface Presenter {
+
         fun onDestroy()
 
         fun requestDataFromServer()

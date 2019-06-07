@@ -7,6 +7,7 @@ interface MovieDetailsContract {
     interface Model {
 
         interface OnFinishedListener {
+
             fun onFinished(movie: Movie)
 
             fun onFailure(t: Throwable)
@@ -23,6 +24,7 @@ interface MovieDetailsContract {
     }
 
     interface Presenter {
+
         fun onDestroy()
 
         fun requestMovieData(movieId: Int)

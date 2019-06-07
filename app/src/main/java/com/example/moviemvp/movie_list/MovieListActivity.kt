@@ -13,10 +13,12 @@ import com.example.moviemvp.movie_detail.MovieDetailsActivity
 import com.example.moviemvp.util.Constants.KEY_MOVIE_ID
 
 class MovieListActivity : AppCompatActivity(), MovieListContract.View, MoviesAdapter.OnListClickListener {
+
     private var movieListPresenter: MovieListPresenter? = null
     private var moviesAdapter: MoviesAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_movie)
         initUI()
@@ -25,29 +27,33 @@ class MovieListActivity : AppCompatActivity(), MovieListContract.View, MoviesAda
     }
 
     private fun initUI() {
+
         val rvMovieList = findViewById<RecyclerView>(R.id.rv_movie_list)
         moviesAdapter = MoviesAdapter()
         val mLayoutManager = GridLayoutManager(this, 3)
         rvMovieList.layoutManager = mLayoutManager
         rvMovieList.adapter = moviesAdapter
-
         moviesAdapter!!.setOnListClickedListener(this)
     }
 
     override fun onSuccess(movies: List<Movie>) {
+
         moviesAdapter!!.setMovies(movies)
     }
 
     override fun onFailure(throwable: Throwable) {
+
         Toast.makeText(this, getString(R.string.communication_error), Toast.LENGTH_LONG).show()
     }
 
     override fun onDestroy() {
+
         super.onDestroy()
         movieListPresenter!!.onDestroy()
     }
 
     override fun onMovieClicked(movie: Movie, position: Int) {
+
         val detailIntent = Intent(this, MovieDetailsActivity::class.java)
         detailIntent.putExtra(KEY_MOVIE_ID, movie.id)
         startActivity(detailIntent)

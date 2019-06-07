@@ -8,8 +8,8 @@ object ApiClient {
 
     private val BASE_URL = "http://api.themoviedb.org/3/"
     private var retrofit: Retrofit? = null
-    val IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w185/"
-    val BACKDROP_BASE_URL = "https://image.tmdb.org/t/p/w185/"
+    const val IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w185/"
+    const val BACKDROP_BASE_URL = "https://image.tmdb.org/t/p/w185/"
 
     val client: Retrofit?
         get() {
