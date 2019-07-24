@@ -46,6 +46,7 @@ public class MovieDetailsActivity extends AppCompatActivity implements MovieDeta
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(false);
         initUI();
+        System.out.println("develop");
         Intent mIntent = getIntent();
         int movieId = mIntent.getIntExtra(KEY_MOVIE_ID, 0);
         movieDetailsPresenter = new MovieDetailsPresenter(this);
