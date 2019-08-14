@@ -22,6 +22,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
     private List<Movie> moviesList;
     private MoviesAdapter moviesAdapter;
     private int pageNo = 1;
+    private int test =0;
     private int previousTotal = 0;
     private boolean loading = true;
     private int visibleThreshold = 5;
